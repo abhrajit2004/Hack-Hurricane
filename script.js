@@ -5,7 +5,7 @@ const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [-73.99209, 40.68933],
-    zoom: 9
+    zoom: 14
 });
 
 // Shows user's current location
@@ -21,18 +21,23 @@ navigator.geolocation.getCurrentPosition((position)=>{
 
 // Shows nearest places 
 
+let marker;
+
 document.getElementById("btn").addEventListener("click",(e)=>{
   e.preventDefault();
   let searchInput = document.getElementById("mySearch").value;
   let search = fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${searchInput}.json?access_token=${mapboxgl.accessToken}&session_token=${mapboxgl.accessToken}`);
   search.then(response=> response.json()).then(data=>{
     if(data.features.length > 0){
-      let coordinates = data.features[0].center;
+      let newCoordinates = data.features[0].center;
       map.flyTo({
-        center: coordinates,
-        zoom: 9,
+        center: newCoordinates,
+        zoom: 14,
       });
-      new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
+      if(marker){
+        marker.remove();
+      }
+      marker = new mapboxgl.Marker({color: 'red'}).setLngLat(newCoordinates).addTo(map);
     }
     else{
       alert('Place not found. Please try again.');
