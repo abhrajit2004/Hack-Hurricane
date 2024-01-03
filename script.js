@@ -7,23 +7,34 @@ const map = new mapboxgl.Map({
     zoom: 14
 });
 
-function fetchNearbyPlaces(location) {
-  const geocodingEndpoint = fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${location[0]},${location[1]}.json?types=poi&access_token=${mapboxgl.accessToken}`);
-  geocodingEndpoint.then((response)=>{
-    response.json();
-  }).then(data=>{
-    const nearbyPlaces = data;
-    console.log(data);
-  })
-
-}
 
 navigator.geolocation.getCurrentPosition((position)=>{
   const userLocation = [position.coords.longitude, position.coords.latitude];
   map.setCenter(userLocation);
   new mapboxgl.Marker().setLngLat(userLocation).addTo(map);
-  fetchNearbyPlaces(userLocation);
 },(error) => {
   console.error('Error getting user location:', error);
 })
-// console.log(map);
+
+
+document.getElementById("btn").addEventListener("click",(e)=>{
+  e.preventDefault();
+  let searchInput = document.getElementById("search").value;
+  let search = fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${searchInput}.json?access_token=${mapboxgl.accessToken}`);
+  search.then((response)=>{
+    console.log(response.json());
+  }).then((data)=>{
+    if(data.features.length > 0){
+      let coordinates = data.features[0].center;
+      map.flyTo({
+        center: coordinates,
+        zoom: 14
+      });
+    }
+    else{
+      alert('Place not found. Please try again.');
+    }
+  }).catch((error)=>{
+    console.error('Error fetching data:', error);
+  })
+})
