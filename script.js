@@ -37,7 +37,7 @@ function searchPOI(coordinates){
 document.getElementById("btn").addEventListener("click",(e)=>{
   e.preventDefault();
   let searchInput = document.getElementById("mySearch").value;
-  let search = fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${searchInput}.json?access_token=${mapboxgl.accessToken}&session_token=${mapboxgl.accessToken}`);
+  let search = fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${searchInput}.json?access_token=${mapboxgl.accessToken}`);
   search.then(response=> response.json()).then(data=>{
     console.log(data.features[0].text);
     if(data.features.length > 0){
