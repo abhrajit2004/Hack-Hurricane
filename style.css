@@ -47,3 +47,9 @@ form {
   background-color: rgb(34, 33, 33);
   color: white;
 }
+
+.mapboxgl-popup-content {
+  color: black; /* replace with your desired color */
+  font-size: 20px;
+  font-weight: bold;
+}
