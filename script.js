@@ -30,7 +30,7 @@ document.getElementById("btn").addEventListener("click",(e)=>{
       let coordinates = data.features[0].center;
       map.flyTo({
         center: coordinates,
-        zoom: 9
+        zoom: 9,
       });
       new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
     }

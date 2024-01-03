@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap");
+body {
+  background-color: #1b1b1b;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+#map {
+  display: block;
+  margin: auto;
+  height: 350px;
+  width: 80%;
+  border: 2px solid white;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  margin: 5px auto;
+  gap: 10px;
+}
+
+#mySearch {
+  font-size: 18px;
+  padding: 10px;
+  width: 328px;
+  border-radius: 6px;
+  box-shadow: 4px 3px 0px grey;
+}
+
+#btn {
+  font-size: 18px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 4px 3px 0px grey;
+  border-style: unset;
+  transition: all 0.5s;
+}
+#btn:hover{
+  background-color: rgb(34, 33, 33);
+  color: white;
+}

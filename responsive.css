@@ -1,0 +1,6 @@
+@media (max-width: 1020px){
+    form{
+        flex-direction: column;
+        gap: 18px;
+    }
+}
