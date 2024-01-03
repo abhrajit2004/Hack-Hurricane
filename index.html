@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css"/>
+    <!-- <script id="mySearch" defer src="https://api.mapbox.com/mySearch/v1.0.0-beta.18/web.js"></script> -->
     <title>Document</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
-        body{
-            background-color: #1b1b1b;
-            color: white;
-            font-family: 'Open Sans', sans-serif;
-        }
-       #map {
-          height: 400px;
-          width: 100%;
-          border: 2px solid white;
-        }
-        #search{
-            padding: 15px;
-           font-size: 23px;
-            margin: 26px;
-        }
-        #search{
-            margin: 25px auto;
-        }
-        form{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        #btn{
-            height: 40px;
-            width: 80px;
-            font-size: 20px;
-            cursor: pointer;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap");
+      body {
+        background-color: #1b1b1b;
+        color: white;
+        font-family: "Open Sans", sans-serif;
+      }
+      #map {
+        height: 400px;
+        width: 100%;
+        border: 2px solid white;
+      }
+      #mySearch {
+        font-size: 23px;
+        margin: 26px;
+      }
+      #search {
+        margin: 25px auto;
+      }
+      form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 300px;
+        margin-top: 16px;
+        border: 2px solid white;
+      }
+      #btn {
+        font-size: 23px;
+        margin: 26px;
+        cursor: pointer;
+      }
     </style>
-</head>
-<body>
-   <h1>Location-based Services App</h1>
-   <div id="map"></div>
-   <form action="">
-     <input type="search" name="search" id="search" placeholder="Enter your search">
-     <button type="submit" id="btn">Search</button>
-   </form>
-   <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
-   <script src="script.js"></script>
-</body>
+  </head>
+  <body>
+    <h1>Location-based Services App</h1>
+    <div id="map"></div>
+    <form>
+      <input type="search" name="search" id="mySearch" placeholder="Enter your search"/>
+      <button type="submit" id="btn">Search</button>
+    </form>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
