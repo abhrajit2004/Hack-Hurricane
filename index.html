@@ -7,11 +7,15 @@
     <!-- <script id="mySearch" defer src="https://api.mapbox.com/mySearch/v1.0.0-beta.18/web.js"></script> -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
-    <title>Document</title>
+    <title>Tripmania</title>
   </head>
   <body>
-    <h1>Location-based Services App</h1>
+    <h1>Tripmania</h1>
     <div id="map"></div>
+    <div class="ele-info">
+      <div>Longitude: <span id="lng"></span></div>
+      <div>Latitude: <span id="lat"></span></div>
+    </div>
     <form>
       <input type="search" name="search" id="mySearch" placeholder="Enter your search"/>
       <button type="submit" id="btn">Search</button>

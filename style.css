@@ -53,3 +53,16 @@ form {
   font-size: 20px;
   font-weight: bold;
 }
+
+.ele-info{
+  display: none;
+  position: absolute;
+  padding: 5px;
+  width: 250px;
+  border: 2px solid black;
+  font-size: 15px;
+  color: #222;
+  background-color: #fff;
+  top: 88px;
+  left: 144px;
+}
