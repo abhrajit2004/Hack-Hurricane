@@ -11,6 +11,7 @@ let counter = 0;
 
 const lngDisplay = document.getElementById('lng');
 const latDisplay = document.getElementById('lat');
+const timeDisplay = document.getElementById('time');
 
 // Default Place
 const map = new mapboxgl.Map({
@@ -59,10 +60,11 @@ document.getElementById("btn").addEventListener("click",(e)=>{
         center: newCoordinates,
         zoom: 14,
       });
+
       if(userPointedMarker){
         userPointedMarker.remove();
-        
       }
+
       userPointedMarker = new mapboxgl.Marker({color: 'red'}).setLngLat(newCoordinates).addTo(map);
       popup =  new mapboxgl.Popup({className : 'mapboxgl-popup-content'}).setText(data.features[0].text);
       userPointedMarker.setPopup(popup);
@@ -85,6 +87,9 @@ function showRoute() {
       const routesURL = fetch(`https://api.mapbox.com/directions/v5/mapbox/driving/${start[0]},${start[1]};${end[0]},${end[1]}?geometries=geojson&access_token=${mapboxgl.accessToken}`);
       routesURL.then((response)=>response.json()).then((data)=>{
         const route = data.routes[0].geometry;
+        let duration = Math.floor(data.routes[0].duration / 60);
+
+        timeDisplay.innerHTML = duration;
 
          // If a route is already loaded, remove it
          if (map.getSource(`route${counter-1}`)) {
