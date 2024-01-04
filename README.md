@@ -4,3 +4,9 @@ This website helps you to go to any places you want in a map and shows respectiv
 ## Tech Stacks Used
 HTML5, CSS3, JS & Mapbox API
 ## Video Preview:
+
+## Contributors
+Abhrajit Gupta:
+
+Sukalyan Roy
+https://github.com/Sukalyan2003
