@@ -1,6 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWJocmFqaXRndXB0YSIsImEiOiJjbHF3Zno4dzYwMmp3MmtteHJkMWhkb3V6In0.wiASQJiI6y28GUr1h-ReBQ';
 let marker;
 let newmarker;
+let userPointedMarker;
 let popup;
 let lng;
 let lat;
@@ -58,13 +59,12 @@ document.getElementById("btn").addEventListener("click",(e)=>{
         center: newCoordinates,
         zoom: 14,
       });
-      if(marker){
-        marker.remove();
+      if(userPointedMarker){
+        userPointedMarker.remove();
       }
-      marker = new mapboxgl.Marker({color: 'red'}).setLngLat(newCoordinates).addTo(map);
-
+      userPointedMarker = new mapboxgl.Marker({color: 'red'}).setLngLat(newCoordinates).addTo(map);
       popup =  new mapboxgl.Popup({className : 'mapboxgl-popup-content'}).setText(data.features[0].text);
-      marker.setPopup(popup);
+      userPointedMarker.setPopup(popup);
     }
     else{
       alert('Place not found. Please try again.');
@@ -131,4 +131,3 @@ map.on('click',(e)=>{
 });
 
 showRoute();
-
