@@ -5,3 +5,9 @@ This website helps you to go to any places you want in a map and shows respectiv
 HTML5, CSS3, JS & Mapbox API
 ## Video Preview:
 https://github.com/abhrajit2004/Hack-Hurricane/assets/116187246/4193f22c-66e6-4ee1-9f5f-d685788b5c26
+
+## Contributors
+Abhrajit Gupta:
+
+Sukalyan Roy:
+https://github.com/Sukalyan2003
