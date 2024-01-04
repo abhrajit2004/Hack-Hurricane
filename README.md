@@ -8,6 +8,7 @@ https://github.com/abhrajit2004/Hack-Hurricane/assets/116187246/4193f22c-66e6-4e
 
 ## Contributors
 Abhrajit Gupta:
+https://github.com/abhrajit2004
 
 Sukalyan Roy:
 https://github.com/Sukalyan2003
