@@ -30,6 +30,7 @@ navigator.geolocation.getCurrentPosition((position)=>{
   marker.setPopup(popup);
 });
 
+
 // Shows nearest places 
 function searchPOI(coordinates){
   let category = 'landmark';
@@ -42,11 +43,14 @@ function searchPOI(coordinates){
   })
 }
 
+
+
 // Shows user-entered location with name
 document.getElementById("btn").addEventListener("click",(e)=>{
   e.preventDefault();
   let searchInput = document.getElementById("mySearch").value;
   let search = fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${searchInput}.json?access_token=${mapboxgl.accessToken}`);
+
   search.then(response=> response.json()).then(data=>{
     lng = data.features[0].center[0];
     lat = data.features[0].center[1];
@@ -77,18 +81,20 @@ document.getElementById("btn").addEventListener("click",(e)=>{
   })
 })
 
+
 // It shows routes
 function showRoute() {
   map.on('click',(e)=>{
     navigator.geolocation.getCurrentPosition((position)=>{
-       const userLocation = [position.coords.longitude, position.coords.latitude];
+      const userLocation = [position.coords.longitude, position.coords.latitude];
       start = userLocation;
       end = [e.lngLat.lng, e.lngLat.lat];
+
       const routesURL = fetch(`https://api.mapbox.com/directions/v5/mapbox/driving/${start[0]},${start[1]};${end[0]},${end[1]}?geometries=geojson&access_token=${mapboxgl.accessToken}`);
       routesURL.then((response)=>response.json()).then((data)=>{
         const route = data.routes[0].geometry;
-        let duration = Math.floor(data.routes[0].duration / 60);
 
+        let duration = Math.floor(data.routes[0].duration / 60);
         timeDisplay.innerHTML = duration;
 
          // If a route is already loaded, remove it
