@@ -5,8 +5,15 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-h1{
-    text-align: center;
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  gap: 10px;
+}
+
+.header img{
+  filter: invert(1);
 }
 
 #map {
@@ -43,6 +50,7 @@ form {
   border-style: unset;
   transition: all 0.5s;
 }
+
 #btn:hover{
   background-color: rgb(34, 33, 33);
   color: white;
@@ -59,6 +67,7 @@ form {
   position: absolute;
   padding: 5px;
   width: 250px;
+  margin: 9px auto;
   border: 2px solid black;
   font-size: 15px;
   color: #222;

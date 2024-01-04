@@ -8,6 +8,8 @@ let lat;
 let start = [];
 let end = [];
 let counter = 0;
+let nearbyPlacesMarker;
+let nearbyPlacesPopUp;
 
 const lngDisplay = document.getElementById('lng');
 const latDisplay = document.getElementById('lat');
@@ -34,15 +36,16 @@ navigator.geolocation.getCurrentPosition((position)=>{
 // Shows nearest places 
 function searchPOI(coordinates){
   let category = 'landmark';
-  let url = fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${category}.json?proximity=${coordinates[0]},${coordinates[1]}&access_token=${mapboxgl.accessToken}&session_token=${mapboxgl.accessToken}`);
+  let landmark = fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${category}.json?proximity=${coordinates[0]},${coordinates[1]}&access_token=${mapboxgl.accessToken}`);
 
-  url.then((response)=>response.json()).then((data)=>{
+  landmark.then((response)=>response.json()).then((data)=>{
     data.features.forEach(feature => {
-      new mapboxgl.Marker({color: 'green'}).setLngLat(feature.geometry.coordinates).addTo(map);
+      nearbyPlacesMarker = new mapboxgl.Marker({color: 'darkblue'}).setLngLat(feature.geometry.coordinates).addTo(map);
+      nearbyPlacesPopUp =  new mapboxgl.Popup({className : 'mapboxgl-popup-content'}).setText(feature.text);
+      nearbyPlacesMarker.setPopup(nearbyPlacesPopUp);
     });
   })
 }
-
 
 
 // Shows user-entered location with name
@@ -69,9 +72,10 @@ document.getElementById("btn").addEventListener("click",(e)=>{
         userPointedMarker.remove();
       }
 
-      userPointedMarker = new mapboxgl.Marker({color: 'red'}).setLngLat(newCoordinates).addTo(map);
+      userPointedMarker = new mapboxgl.Marker({color: 'green'}).setLngLat(newCoordinates).addTo(map);
       popup =  new mapboxgl.Popup({className : 'mapboxgl-popup-content'}).setText(data.features[0].text);
       userPointedMarker.setPopup(popup);
+      searchPOI(coords);
     }
     else{
       alert('Place not found. Please try again.');
@@ -79,6 +83,7 @@ document.getElementById("btn").addEventListener("click",(e)=>{
   }).catch((error)=>{
     console.error('Error fetching data:', error);
   })
+
 })
 
 

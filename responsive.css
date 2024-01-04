@@ -3,4 +3,9 @@
         flex-direction: column;
         gap: 18px;
     }
+
+    .ele-info{
+        top: 88px;
+        left: 67px;
+    }
 }
