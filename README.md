@@ -1,5 +1,3 @@
-
-https://github.com/abhrajit2004/Hack-Hurricane/assets/116187246/adfdf0ac-5d7f-4135-bd0a-66105af2280b
 # Presenting our new project Tripmania
 ## Description
 This website helps you to go to any places you want in a map and shows respective nearby tourist attractions. It also shows driving time to reach, longtitude and latitude of that place.
