@@ -61,6 +61,7 @@ document.getElementById("btn").addEventListener("click",(e)=>{
       });
       if(userPointedMarker){
         userPointedMarker.remove();
+        
       }
       userPointedMarker = new mapboxgl.Marker({color: 'red'}).setLngLat(newCoordinates).addTo(map);
       popup =  new mapboxgl.Popup({className : 'mapboxgl-popup-content'}).setText(data.features[0].text);
