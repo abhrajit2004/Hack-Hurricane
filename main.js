@@ -35,7 +35,7 @@ navigator.geolocation.getCurrentPosition((position)=>{
 
 // Shows nearest places 
 function searchPOI(coordinates){
-  let category = 'landmark';
+  let category = 'tourist-attraction';
   let landmark = fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${category}.json?proximity=${coordinates[0]},${coordinates[1]}&access_token=${mapboxgl.accessToken}`);
 
   landmark.then((response)=>response.json()).then((data)=>{
